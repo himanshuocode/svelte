@@ -19,7 +19,7 @@
 		document.title = 'Categories';
 
 		try {
-		const products = await  fetchProducts("1128");
+		const products = await  fetchProducts(url);
 		console.log(products.data.products.items,'categories')
         all_products = products.data.products.items
 		} catch (error) {
