@@ -1,6 +1,6 @@
 const fetchProductsQuery = `
- query productsByCategory($categoryId: String!) {
-  products(filter: {category_id: {eq: $categoryId}}) {
+ query productsByCategory($categoryUID: String!) {
+  products(filter: {category_uid: {eq: $categoryUID}}) {
     total_count
   aggregations{
         count
