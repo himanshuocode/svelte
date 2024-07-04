@@ -1,8 +1,8 @@
 import fetchCategoriesQuery from './catQueries.js';
 import fetchProductsQuery from './productQueries.js';
-import fetchProductsDetailQuery from './productDetails.js'
+// import fetchProductsDetailQuery from './productDetails.js'
 
-const GRAPHQL_ENDPOINT = 'https://qateam.diamondnexus.com/graphql';
+const GRAPHQL_ENDPOINT = 'https://sanjay.diamondnexus.com/graphql';
 
 // Fetch categories
 
@@ -24,9 +24,8 @@ export async function fetchCategories() {
     }
 }
 
-
 /**
- * @param {any} categoryId
+ * @param {string | null} categoryId
  */
 export async function fetchProducts(categoryId) {
   const query = fetchProductsQuery;
@@ -52,31 +51,3 @@ export async function fetchProducts(categoryId) {
 }
 
 
-// // Fetch product details
-// export async function fetchProductBySku(sku) {
-//   try {
-//     const response = await fetch(GRAPHQL_ENDPOINT, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({
-//         query: fetchProductsDetailQuery,
-//         variables: { sku },
-//       }),
-//     });
-
-//     const result = await response.json();
-//     console.log(result, '----------------result'); // Log the entire result
-
-//     if (result.data && result.data.products && result.data.products.items) {
-//       return result.data.products.items[0]; // Assuming the query returns a list with one item
-//     } else {
-//       console.error('Unexpected response structure:', result);
-//       return null;
-//     }
-//   } catch (error) {
-//     console.error('Error fetching product by SKU:', error);
-//     return null;
-//   }
-// }

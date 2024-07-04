@@ -22,9 +22,9 @@
 			<li aria-current={$page.url.pathname === '/categories' ? 'page' : undefined}>
 				<a href="/categories">Categories</a>
 			</li>
-			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href="/sverdle">About us</a>
-			</li>
+			<!-- <li aria-current={$page.url.pathname.startsWith('') ? 'page' : undefined}>
+				<a href="">About us</a>
+			</li> -->
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
@@ -50,19 +50,9 @@
 		height: 3em;
 	}
 
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
 
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
-	}
+
+	
 
 	nav {
 		display: flex;

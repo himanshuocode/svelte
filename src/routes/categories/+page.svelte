@@ -26,10 +26,10 @@
 	/**
      * @param {string} path
      */
-	 function getLastPathSegment(path) {
-		const segments = path.split('/');
-		return segments.length > 0 ? segments[segments.length - 1] : '';
-	}
+	//  function getLastPathSegment(path) {
+	// 	const segments = path.split('/');
+	// 	return segments.length > 0 ? segments[segments.length - 1] : '';
+	// }
 </script>
 
 <section class="cards-section">
@@ -40,7 +40,7 @@
 		{#each categories as category}
 				{#each category.children as subcategory}
 		<li>
-		<a href={`products/?category=${getLastPathSegment(subcategory.path)}`} class="card">
+		<a href={`categoryUID/${subcategory.uid}`} class="card">
 				<!-- svelte-ignore a11y-img-redundant-alt -->
 				<!-- <img src={subcategory.image ? subcategory.image : 'https://via.placeholder.com/150'} class="card__image" alt={subcategory.name} /> -->
 				<img src={dimondImage} class="card__image" alt={subcategory.name} />
@@ -148,19 +148,14 @@
 
 .card__arc path {
   fill: var(--surface-color);
-  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+  /* d:path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z"); */
 }       
 
 .card:hover .card__header {
   transform: translateY(0);
 }
 
-.card__thumb {
-  flex-shrink: 0;
-  width: 50px;
-  height: 50px;      
-  border-radius: 50%;      
-}
+
 
 .card__title {
   font-size: 1em;
@@ -168,18 +163,9 @@
   color: #6A515E;
 }
 
-.card__tagline {
-  display: block;
-  margin: 1em 0;
-  font-family: "MockFlowFont";  
-  font-size: .8em; 
-  color: #D7BDCA;  
-}
 
-.card__status {
-  font-size: .8em;
-  color: #D7BDCA;
-}
+
+
 
 .card__description {
   padding: 0 2em 2em;

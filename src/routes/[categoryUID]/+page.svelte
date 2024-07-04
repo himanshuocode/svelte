@@ -3,43 +3,17 @@
 	<meta name="description" content="Products page" />
 </svelte:head>
 
+
 <script>
-  // Add any necessary JavaScript here
-  import { onMount } from 'svelte';
-  import { page } from '$app/stores'
-  import { fetchProducts } from '../../graphql/client'
+  // export let data../products/$types.js;
+  // let { categoryId, products } = data;
 
-    const url = $page.url.searchParams.get('category')
-    console.log(url, "--------------------")
-    /**
-     * @type {any[]}
-     */
-    let all_products = []
-    onMount(async () => {
-		document.title = 'Categories';
-
-		try {
-		const products = await  fetchProducts(url);
-		console.log(products.data.products.items,'categories')
-        all_products = products.data.products.items
-		} catch (error) {
-			console.error('Failed to load categories:', error);
-		}
-
-	});
 </script>
-
 <style>
   * {
     box-sizing: border-box;
   }
 
-  body {
-    font-family: "Inter", sans-serif;
-    height: 100vh;
-    background: #f5f5f5;
-    box-sizing: border-box;
-  }
 
   .product-section {
     display: flex;
@@ -200,9 +174,10 @@
 <main>
   <section class="product-section">
     <div class="product-grid">
-        {#each all_products as product}
+        <!-- {#each products as product}
         <div class="card">
-            <div class="card-pill">Sale</div>
+            <div class="card-pill">Sale </div>
+
             <img class="card-img" src="https://assets.diamondnexus.com/image/upload/f_auto,q_auto,w_1200,c_scale/media/catalog/product/d/i/diamond-diva-round-whiteview-1.jpg" alt="product-image">
             <div class="flex-row space-between w-full mb-sm">
               <p class="product-brand">SKU: {product.sku}</p>
@@ -214,7 +189,7 @@
               <p class="price">$<span>79.95</span></p>
             </div>
             <div class="btn-col">
-              <a href="#" class="icon-link">
+              <a href="/" class="icon-link">
                 Purchase
                 <svg fill="none" class="rubicons arrow-right-up" xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path d="M17.9645 12.9645l.071-7h-7.071" stroke-linecap="round"></path>
@@ -224,10 +199,11 @@
             </div>
           </div>
             
-        {/each}
+        {/each} -->
       
-      <!-- <div class="card">
+        <div class="card">
         <div class="card-pill hide">Sale</div>
+        <!-- svelte-ignore a11y-img-redundant-alt -->
         <img class="card-img" src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/c15bdccf-e742-4ad2-9110-e50940765f66/sb-charge-canvas-skate-shoe-80KN54.jpg" alt="product-image">
         <div class="flex-row space-between w-full mb-sm">
           <p class="product-brand">Nike SB</p>
@@ -239,7 +215,7 @@
           <p class="price">$<span>65</span></p>
         </div>
         <div class="btn-col">
-          <a href="#" class="icon-link">
+          <a href="/" class="icon-link">
             Purchase
             <svg fill="none" class="rubicons arrow-right-up" xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path d="M17.9645 12.9645l.071-7h-7.071" stroke-linecap="round"></path>
@@ -248,7 +224,7 @@
           </a>
         </div>
       </div>
-      <div class="card">
+      <!-- <div class="card">
         <div class="card-pill hide">Sale</div>
         <img class="card-img" src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/8968297e-7aa4-447b-88e9-d79ba90b6fc3/sb-shane-skate-shoe-m56jq0.jpg" alt="product-image">
         <div class="flex-row space-between w-full mb-sm">
